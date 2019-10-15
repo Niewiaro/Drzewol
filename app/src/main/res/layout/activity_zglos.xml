@@ -71,7 +71,7 @@
         app:srcCompat="@drawable/zglos3" />
 
     <Button
-        android:id="@+id/zaczynamy"
+        android:id="@+id/zaczynajmy"
         android:layout_width="wrap_content"
         android:layout_height="99dp"
         android:layout_alignBottom="@+id/zglos2"
