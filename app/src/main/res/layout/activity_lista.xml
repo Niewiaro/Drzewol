@@ -34,4 +34,35 @@
         android:text="Lista"
         android:textSize="50dp" />
 
+    <ImageView
+        android:id="@+id/dzban"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/dzban" />
+
+    <Button
+        android:id="@+id/spin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="37dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:textColor="#ffffff"
+        android:background="@color/cardview_dark_background"
+        android:text="   PUK!!!   " />
+
+    <TextView
+        android:id="@+id/XDDD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/spin"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="69dp"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:textColor="#ff69b4"
+        android:gravity="center_horizontal|center_vertical"
+        android:textSize="50dp" />
+
 </RelativeLayout>
