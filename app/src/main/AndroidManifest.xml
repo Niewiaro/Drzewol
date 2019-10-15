@@ -9,9 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Lista" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCG9Jmc-oJKDg0kkHoOvj-HncAzKupJpIg" />
+        <activity android:name=".Lista"></activity>
         <activity android:name=".Zglos" />
         <activity android:name=".Mapa" />
+        <activity android:name=".uploadClass"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
