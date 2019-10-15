@@ -52,9 +52,9 @@ public class uploadClass extends Activity {
                     Map<String, Object> report = new HashMap<>();
                     //put all values entered to HashMap
                     report.put("Title", MainActivity.Title);
+                    report.put("Description", MainActivity.Description);
                     report.put("lat", MainActivity.Lat);
                     report.put("Long", MainActivity.Long);
-                    report.put("Description", MainActivity.Description);
                     index+=1;   //increment index
                     report.put("ID", index);
 
