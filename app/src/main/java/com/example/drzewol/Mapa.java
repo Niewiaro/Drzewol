@@ -12,7 +12,10 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class Mapa extends FragmentActivity implements OnMapReadyCallback {
+public class Mapa extends AppCompatActivity implements OnMapReadyCallback {
+//    zmienilem FragmentActivity na AppCompatActivity, by dzialala animacja
+
+
 
     private GoogleMap mMap;
 
