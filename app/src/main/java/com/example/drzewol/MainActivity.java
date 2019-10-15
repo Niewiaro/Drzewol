@@ -19,6 +19,9 @@ public class MainActivity extends AppCompatActivity {
     Button zglos, listaa, mapa;
     Animation choinka_z_prawej, napis_z_lewej;
 
+    public String Title = "", Description = "";
+    public double Lat = 0.0000, Long = 0.0000;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
