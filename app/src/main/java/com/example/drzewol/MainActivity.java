@@ -17,7 +17,7 @@ import android.widget.RelativeLayout;
 
 public class MainActivity extends AppCompatActivity {
 
-    ImageView choinka, aparat, pieska, lista;
+    ImageView choinka, aparat, pineska, lista;
     Button zglos, listaa, mapa;
     Animation choinka_z_prawej, napis_z_lewej;
 
@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
         choinka = (ImageView) findViewById(R.id.choinka);
         aparat = (ImageView) findViewById(R.id.aparat);
-        pieska = (ImageView) findViewById(R.id.pineska);
+        pineska = (ImageView) findViewById(R.id.pineska);
         lista = (ImageView) findViewById(R.id.lista);
         zglos = (Button) findViewById(R.id.zglos) ;
         listaa = (Button) findViewById(R.id.listaa) ;
@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         mapa.setAnimation(napis_z_lewej);
         aparat.setAnimation(napis_z_lewej);
         lista.setAnimation(napis_z_lewej);
-        pieska.setAnimation(napis_z_lewej);
+        pineska.setAnimation(napis_z_lewej);
 
         mapa.setOnClickListener(new View.OnClickListener() {
             @Override
