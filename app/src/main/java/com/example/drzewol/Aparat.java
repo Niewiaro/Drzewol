@@ -22,12 +22,14 @@ public class Aparat extends AppCompatActivity {
 
         submitBtn = findViewById(R.id.SubmitBtn);
         imageView = findViewById(R.id.imageView);
+        dispatchTakePictureIntent(null);
     }
 
     static final int REQUEST_IMAGE_CAPTURE = 1;
 
     public void dispatchTakePictureIntent(View view) {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
             startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
         }
@@ -42,7 +44,7 @@ public class Aparat extends AppCompatActivity {
         }
     }
 
-    public void openMainActivity(View view) {
+    public void openOpisActivity(View view) {
         Intent intent = new Intent(this, Opis.class);
         startActivity(intent);
     }
