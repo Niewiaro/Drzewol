@@ -26,7 +26,7 @@ public class uploadClass extends Activity {
 
     //it has to be called when data has to be sent to the server
 
-    double index = 0;
+
     public void sendMessage(View view){
 
 
@@ -45,7 +45,7 @@ public class uploadClass extends Activity {
                 DocumentSnapshot document;
                 if(task.isSuccessful()){
                     document = task.getResult();
-                    index = document.getDouble("created");
+                    MainActivity.index = document.getDouble("created");
                     Toast.makeText(getApplicationContext(), "INDEX received",
                                                             Toast.LENGTH_SHORT).show();
 
@@ -55,20 +55,18 @@ public class uploadClass extends Activity {
                     report.put("Description", MainActivity.Description);
                     report.put("lat", MainActivity.Lat);
                     report.put("Long", MainActivity.Long);
-                    index+=1;   //increment index
-                    report.put("ID", index);
+                    MainActivity.index+=1;   //increment index
+                    report.put("ID", MainActivity.index);
 
                     //post to Firebase with incremented name
-                    db.collection("reports").document("ZGL"+index).set(report);
+                    db.collection("reports").document("ZGL"+MainActivity.index).set(report);
 
                     //update INDEX with incremented value in proper directory
                     Map<String, Object> INDEX = new HashMap<>();
                     INDEX.put("created", INDEX);
-                    db.collection("reports").document("INDEX").set(index);
+                    db.collection("reports").document("INDEX").set(MainActivity.index);
                 }
             }
         });
     }
-
-    //TODO: server read
 }
