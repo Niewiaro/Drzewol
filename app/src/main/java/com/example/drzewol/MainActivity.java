@@ -1,5 +1,6 @@
 package com.example.drzewol;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ActivityOptions;
@@ -14,6 +15,13 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
     static public String Title = "", Description = "";
     static public double Lat = 0.0000, Long = 0.0000;
+    static public double index = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,6 +99,25 @@ public class MainActivity extends AppCompatActivity {
                 ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, pairs);
 
                 startActivity(sharedIntent, options.toBundle());
+            }
+        });
+
+        //get the current INDEX from server (needed for map display)
+
+        final FirebaseFirestore db = FirebaseFirestore.getInstance();
+        final DocumentReference docRef = db.collection("reports")
+                .document("INDEX");
+
+        //send a data request and set listener
+        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                DocumentSnapshot document;
+                if(task.isSuccessful()){
+                    document = task.getResult();
+                    index = document.getDouble("created");
+                    Toast.makeText(getApplicationContext(), "index ready", Toast.LENGTH_LONG).show();
+                }
             }
         });
     }
