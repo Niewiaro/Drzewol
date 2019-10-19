@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent sharedIntent = new Intent(MainActivity.this, Mapa.class);
 
                 Pair[] pairs = new Pair[1];
-                pairs[0] = new Pair<View, String>(pieska, "pineska123");
+                pairs[0] = new Pair<View, String>(pineska, "pineska123");
 
                 ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, pairs);
 
