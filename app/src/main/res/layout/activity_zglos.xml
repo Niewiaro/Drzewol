@@ -21,70 +21,65 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:transitionName="aparat123"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/aparat" />
+
+        <TextView
+            android:id="@+id/zglos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Zgłoś"
+            android:textSize="50dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/zglos1"
+            android:layout_width="385dp"
+            android:layout_height="149dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/zglos"
+            app:srcCompat="@drawable/zglos1" />
+
+        <ImageView
+            android:id="@+id/zglos2"
+            android:layout_width="385dp"
+            android:layout_height="151dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/zglos3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/zglos1"
+            app:srcCompat="@drawable/zglos2" />
+
+        <ImageView
+            android:id="@+id/zglos3"
+            android:layout_width="385dp"
+            android:layout_height="152dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="24dp"
+            app:layout_constraintBottom_toTopOf="@+id/zaczynajmy"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/zglos3" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="301dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:transitionName="aparat123"
-        app:srcCompat="@drawable/aparat" />
-
-    <TextView
-        android:id="@+id/zglos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="130dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="130dp"
-        android:gravity="center_horizontal|center_vertical"
-        android:text="Zgłoś"
-        android:textSize="50dp" />
-
-    <ImageView
-        android:id="@+id/zglos1"
-        android:layout_width="385dp"
-        android:layout_height="252dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="39dp"
-        android:layout_marginEnd="12dp"
-        app:srcCompat="@drawable/zglos1" />
-
-    <ImageView
-        android:id="@+id/zglos2"
-        android:layout_width="385dp"
-        android:layout_height="252dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="199dp"
-        android:layout_marginEnd="12dp"
-        app:srcCompat="@drawable/zglos2" />
-
-    <ImageView
-        android:id="@+id/zglos3"
-        android:layout_width="385dp"
-        android:layout_height="252dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="359dp"
-        android:layout_marginEnd="12dp"
-        app:srcCompat="@drawable/zglos3" />
 
     <TextView
         android:id="@+id/textView"
