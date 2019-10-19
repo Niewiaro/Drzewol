@@ -26,6 +26,7 @@ public class Opis extends AppCompatActivity {
     TextView textView;
     LocationManager locationManager;
     LocationListener locationListener;
+    EditText editText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +35,7 @@ public class Opis extends AppCompatActivity {
 
         Button button = findViewById(R.id.wyslij);
         textView = (TextView) findViewById(R.id.textView);
+        editText = (EditText) findViewById(R.id.zglosOpis);
 
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         locationListener = new LocationListener() {
@@ -77,6 +79,9 @@ public class Opis extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String textOut = editText.getText().toString();
+                MainActivity.Description = textOut;
+
                 Toast.makeText(Opis.this, "Zgłoszenie wysłane!", Toast.LENGTH_SHORT).show();
 
                 openMainActivity();
