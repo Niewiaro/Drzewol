@@ -19,8 +19,8 @@ public class Aparat extends AppCompatActivity {
         submitBtn = findViewById(R.id.SubmitBtn);
     }
 
-    public void openMainActivity(View view) {
-        Intent intent = new Intent(this, MainActivity.class);
+    public void openOpis(View view) {
+        Intent intent = new Intent(this, Opis.class);
         startActivity(intent);
     }
 }

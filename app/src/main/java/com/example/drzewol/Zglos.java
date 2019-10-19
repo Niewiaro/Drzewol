@@ -90,13 +90,13 @@ public class Zglos extends AppCompatActivity {
             public void onClick(View v) {
                 locationManager.requestLocationUpdates("gps", 5000, 0, locationListener);
 
-                openOpis();
+                openAparat();
             }
         });
     }
 
-    private void openOpis() {
-        Intent intent = new Intent(this, Opis.class);
+    private void openAparat() {
+        Intent intent = new Intent(this, Aparat.class);
         startActivity(intent);
     }
 

@@ -105,7 +105,7 @@ public class Opis extends AppCompatActivity {
 
 
     private void openMainActivity() { // zmienione na Aparat
-        Intent intent = new Intent(this, Aparat.class);
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 }
