@@ -30,7 +30,7 @@ public class uploadClass extends Activity {
     public void sendMessage(View view){
 
 
-        Toast.makeText(getApplicationContext(), "Sending", Toast.LENGTH_SHORT).show();
+        Toast.makeText(uploadClass.this, "Sending", Toast.LENGTH_SHORT).show();
 
         final FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -53,7 +53,7 @@ public class uploadClass extends Activity {
                     //put all values entered to HashMap
                     report.put("Title", MainActivity.Title);
                     report.put("Description", MainActivity.Description);
-                    report.put("lat", MainActivity.Lat);
+                    report.put("Lat", MainActivity.Lat);
                     report.put("Long", MainActivity.Long);
                     MainActivity.index+=1;   //increment index
                     report.put("ID", MainActivity.index);
