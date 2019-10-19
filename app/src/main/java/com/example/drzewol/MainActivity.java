@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
                 if(task.isSuccessful()){
                     document = task.getResult();
                     index = document.getDouble("created");
-                    Toast.makeText(getApplicationContext(), "index ready", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Chuj Ci w dupe!!!", Toast.LENGTH_LONG).show();
                 }
             }
         });
