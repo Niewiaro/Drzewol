@@ -65,7 +65,7 @@ public class Mapa extends AppCompatActivity implements OnMapReadyCallback {
                             mMap = googleMap;
 
                             LatLng newLoc = new LatLng(document.getDouble("Lat"),
-                                    document.getDouble("Lng")); //new object holding coords
+                                    document.getDouble("Long")); //new object holding coords
                             mMap.addMarker(new MarkerOptions().position(newLoc)
                                     .title(document.getString("Title")));
 

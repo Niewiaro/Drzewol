@@ -27,10 +27,10 @@ public class uploadClass extends Activity {
     //it has to be called when data has to be sent to the server
 
 
-    public void sendMessage(View view){
+     public static void sendMessage(){
 
 
-        Toast.makeText(uploadClass.this, "Sending", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(uploadClass.this, "Sending", Toast.LENGTH_SHORT).show();
 
         final FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -46,8 +46,6 @@ public class uploadClass extends Activity {
                 if(task.isSuccessful()){
                     document = task.getResult();
                     MainActivity.index = document.getDouble("created");
-                    Toast.makeText(getApplicationContext(), "INDEX received",
-                                                            Toast.LENGTH_SHORT).show();
 
                     Map<String, Object> report = new HashMap<>();
                     //put all values entered to HashMap
