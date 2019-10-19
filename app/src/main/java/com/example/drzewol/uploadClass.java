@@ -46,8 +46,6 @@ public class uploadClass extends Activity {
                 if(task.isSuccessful()){
                     document = task.getResult();
                     MainActivity.index = document.getDouble("created");
-                    //Toast.makeText(getApplicationContext(), "INDEX received",
-                    //                                        Toast.LENGTH_SHORT).show();
 
                     Map<String, Object> report = new HashMap<>();
                     //put all values entered to HashMap
