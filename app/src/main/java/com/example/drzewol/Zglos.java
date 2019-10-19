@@ -38,8 +38,8 @@ public class Zglos extends AppCompatActivity {
         locationListener = new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
-//                textView.append("\n" + location.getLatitude() + " " + location.getLongitude());
-                  textView.setText ("x: " + location.getLatitude() + "\ny: " + location.getLongitude());
+                MainActivity.Lat = location.getLatitude();
+                MainActivity.Long = location.getLongitude();
 
 
             }
