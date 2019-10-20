@@ -24,7 +24,7 @@ import android.widget.Toast;
 
 import static com.example.drzewol.MainActivity.Lat;
 
-public class Opis extends AppCompatActivity {
+public class Opis2 extends AppCompatActivity {
 
     TextView textView;
     LocationManager locationManager;
