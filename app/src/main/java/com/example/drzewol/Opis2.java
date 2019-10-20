@@ -38,7 +38,7 @@ public class Opis2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_opis);
+        setContentView(R.layout.activity_opis2);
 
         Button button = findViewById(R.id.wyslij);
         textView = (TextView) findViewById(R.id.textView);
@@ -55,7 +55,7 @@ public class Opis2 extends AppCompatActivity {
 
                 //uploadClass.sendMessage();
 
-                Toast.makeText(Opis.this, "Zgłoszenie wysłane!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Opis2.this, "Zgłoszenie wysłane!", Toast.LENGTH_SHORT).show();
 
                 openMainActivity();
             }
