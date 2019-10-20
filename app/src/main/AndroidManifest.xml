@@ -16,9 +16,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Zglos2"></activity>
-        <activity android:name=".Wybierz" />
-        <activity android:name=".Opis2" />
+        <activity
+            android:name=".Zglos2"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Wybierz"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Opis2"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Opis"
             android:screenOrientation="portrait" />

@@ -14,6 +14,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.provider.Settings;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Pair;
 import android.view.View;
 import android.widget.Button;
@@ -29,9 +31,10 @@ public class Opis extends AppCompatActivity {
     TextView textView;
     LocationManager locationManager;
     LocationListener locationListener;
-    EditText editText;
+    EditText editText, editText2;
     ImageView imageView;
     Bitmap imageBitmap;
+    Button button;
 
     Boolean Raz;
 
@@ -40,24 +43,34 @@ public class Opis extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_opis);
 
-        Button button = findViewById(R.id.wyslij);
         textView = (TextView) findViewById(R.id.textView);
         editText = (EditText) findViewById(R.id.zglosOpis);
+        editText2 = (EditText) findViewById(R.id.zglosTytul);
+        button = (Button) findViewById(R.id.wyslij);
         imageView = findViewById(R.id.imageView2);
         Raz = false;
-
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String textOut = editText.getText().toString();
-                MainActivity.Description = textOut;
+                if(editText2.length()==0){
+                    editText2.setError(" To pole nie może być puste! ");
+                }
 
-                //uploadClass.sendMessage();
+                else{
+                    String textOut2 = editText2.getText().toString();
+                    MainActivity.Title = textOut2;
 
-                Toast.makeText(Opis.this, "Zgłoszenie wysłane!", Toast.LENGTH_SHORT).show();
 
-                openMainActivity();
+                    String textOut = editText.getText().toString();
+                    MainActivity.Description = textOut;
+
+                    //uploadClass.sendMessage();
+
+                    Toast.makeText(Opis.this, "Zgłoszenie wysłane!", Toast.LENGTH_SHORT).show();
+
+                    openMainActivity();
+                }
             }
         });
 
