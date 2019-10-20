@@ -133,7 +133,7 @@ public class Opis2 extends AppCompatActivity {
 
                     //uploadClass.sendMessage();
 
-                    Toast.makeText(Opis2.this, "Zgłoszenie wysłane!" + x2 + " " + y2, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Opis2.this, "Zgłoszenie wysłane!", Toast.LENGTH_SHORT).show();
 
                     openMainActivity();
                 }
