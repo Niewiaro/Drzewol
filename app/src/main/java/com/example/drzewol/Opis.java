@@ -6,16 +6,19 @@ import android.Manifest;
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.provider.Settings;
 import android.util.Pair;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,6 +30,8 @@ public class Opis extends AppCompatActivity {
     LocationManager locationManager;
     LocationListener locationListener;
     EditText editText;
+    ImageView imageView;
+    Bitmap imageBitmap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +41,7 @@ public class Opis extends AppCompatActivity {
         Button button = findViewById(R.id.wyslij);
         textView = (TextView) findViewById(R.id.textView);
         editText = (EditText) findViewById(R.id.zglosOpis);
+        imageView = findViewById(R.id.imageView2);
 
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         locationListener = new LocationListener() {
@@ -89,6 +95,8 @@ public class Opis extends AppCompatActivity {
                 openMainActivity();
             }
         });
+
+        dispatchTakePictureIntent(null);
     }
 
     @Override
@@ -103,6 +111,27 @@ public class Opis extends AppCompatActivity {
 
     private void configurateButton() {
                 locationManager.requestLocationUpdates("gps", 5000, 0, locationListener);
+    }
+
+
+
+    static final int REQUEST_IMAGE_CAPTURE = 1;
+
+    public void dispatchTakePictureIntent(View view) {
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+
+        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+            Bundle extras = data.getExtras();
+            imageBitmap = (Bitmap) extras.get("data");
+            imageView.setImageBitmap(imageBitmap);
+        }
     }
 
 

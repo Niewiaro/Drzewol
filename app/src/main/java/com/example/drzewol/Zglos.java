@@ -96,7 +96,7 @@ public class Zglos extends AppCompatActivity {
     }
 
     private void openAparat() {
-        Intent intent = new Intent(this, Aparat.class);
+        Intent intent = new Intent(this, Opis.class);
         startActivity(intent);
     }
 
