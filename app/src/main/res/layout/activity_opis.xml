@@ -38,6 +38,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
             android:layout_marginEnd="24dp"
             android:ems="10"
             android:gravity="start|top"
@@ -87,10 +88,11 @@
             android:id="@+id/imageView2"
             android:layout_width="151dp"
             android:layout_height="166dp"
+            android:layout_marginTop="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:srcCompat="@drawable/aparat"
-            tools:layout_editor_absoluteY="116dp" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView"
+            app:srcCompat="@drawable/aparat" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
