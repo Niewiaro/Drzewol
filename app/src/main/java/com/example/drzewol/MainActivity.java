@@ -10,6 +10,7 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Pair;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
@@ -37,6 +38,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+
 
         choinka = (ImageView) findViewById(R.id.choinka);
         aparat = (ImageView) findViewById(R.id.aparat);
@@ -116,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
                 if(task.isSuccessful()){
                     document = task.getResult();
                     index = document.getDouble("created");
-                    Toast.makeText(getApplicationContext(), "Index ready", Toast.LENGTH_LONG).show();
+                    //Toast.makeText(getApplicationContext(), "Index ready", Toast.LENGTH_LONG).show();
                 }
             }
         });

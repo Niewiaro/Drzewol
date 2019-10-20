@@ -29,10 +29,11 @@ public class Opis2 extends AppCompatActivity {
     TextView textView;
     LocationManager locationManager;
     LocationListener locationListener;
-    EditText editText;
+    EditText editText, editText2, x, y;
     ImageView imageView;
-    Bitmap imageBitmap;
-
+    Button button, button2;
+    String x1, y1;
+    double x2, y2;
     Boolean Raz;
 
     @Override
@@ -40,28 +41,104 @@ public class Opis2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_opis2);
 
-        Button button = findViewById(R.id.wyslij);
+        button = (Button) findViewById(R.id.wyslij);
+        button2 = (Button) findViewById(R.id.button);
         textView = (TextView) findViewById(R.id.textView);
         editText = (EditText) findViewById(R.id.zglosOpis);
+        editText2 = (EditText) findViewById(R.id.zglosTytul);
+        x = (EditText) findViewById(R.id.szerokosc);
+        y = (EditText) findViewById(R.id.dlugosc);
         imageView = findViewById(R.id.imageView2);
-        Raz = false;
 
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Raz = false;
+                locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+                locationListener = new LocationListener() {
+                    @Override
+                    public void onLocationChanged(Location location) {
+                        if(!Raz){
+                            x2 = location.getLatitude();
+                            x1 = String.valueOf(x2);
+                            x.setText(x1);
+
+                            y2 = location.getLongitude();
+                            y1 = String.valueOf(y2);
+                            y.setText(y1);
+
+                            Raz= true;
+                        }
+                    }
+
+                    @Override
+                    public void onStatusChanged(String provider, int status, Bundle extras) {
+
+                    }
+
+                    @Override
+                    public void onProviderEnabled(String provider) {
+
+                    }
+
+                    @Override
+                    public void onProviderDisabled(String provider) {
+                        Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                        startActivity(intent);
+                    }
+                };
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                        requestPermissions(new String[]{
+                                Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.ACCESS_COARSE_LOCATION,
+                                Manifest.permission.INTERNET
+                        }, 10);
+                        return;
+                    }
+                }
+
+                configurateButton();
+            }
+        });
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String textOut = editText.getText().toString();
-                MainActivity.Description = textOut;
+                if(editText2.length()==0){
+                    editText2.setError(" To pole nie może być puste! ");
+                }
 
-                //uploadClass.sendMessage();
+                else if(x.length()==0){
+                    x.setError(" Musisz podać współrzędną! ");
+                }
 
-                Toast.makeText(Opis2.this, "Zgłoszenie wysłane!", Toast.LENGTH_SHORT).show();
+                else if(y.length()==0){
+                    y.setError(" Musisz podać współrzędną! ");
+                }
 
-                openMainActivity();
+                else{
+                    x2 = Double.parseDouble(x.getText().toString());
+                    Lat = x2;
+
+                    y2 = Double.parseDouble(y.getText().toString());
+                    MainActivity.Long = y2;
+
+                    String textOut2 = editText2.getText().toString();
+                    MainActivity.Title = textOut2;
+
+
+                    String textOut = editText.getText().toString();
+                    MainActivity.Description = textOut;
+
+                    //uploadClass.sendMessage();
+
+                    Toast.makeText(Opis2.this, "Zgłoszenie wysłane!" + x2 + " " + y2, Toast.LENGTH_SHORT).show();
+
+                    openMainActivity();
+                }
             }
         });
-
-        dispatchTakePictureIntent(null);
     }
 
     @Override
@@ -76,72 +153,6 @@ public class Opis2 extends AppCompatActivity {
 
     private void configurateButton() {
         locationManager.requestLocationUpdates("gps", 5000, 0, locationListener);
-    }
-
-
-
-    static final int REQUEST_IMAGE_CAPTURE = 1;
-
-    public void dispatchTakePictureIntent(View view) {
-        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-
-        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
-        }
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-            Bundle extras = data.getExtras();
-            imageBitmap = (Bitmap) extras.get("data");
-            imageView.setImageBitmap(imageBitmap);
-
-            locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
-            locationListener = new LocationListener() {
-                @Override
-                public void onLocationChanged(Location location) {
-                    if(!Raz) {
-                        Lat = location.getLatitude();
-                        MainActivity.Long = location.getLongitude();
-                        textView.setText("x: " + Lat + "\ny: " + MainActivity.Long);
-                        Raz= true;
-                    }
-                }
-
-                @Override
-                public void onStatusChanged(String provider, int status, Bundle extras) {
-
-                }
-
-                @Override
-                public void onProviderEnabled(String provider) {
-
-                }
-
-                @Override
-                public void onProviderDisabled(String provider) {
-                    Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-                    startActivity(intent);
-                }
-            };
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                    requestPermissions(new String[]{
-                            Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.ACCESS_COARSE_LOCATION,
-                            Manifest.permission.INTERNET
-                    }, 10);
-                    return;
-                }
-            }
-
-            configurateButton();
-        }
-
-        else{
-            openZglos();
-        }
     }
 
     private void openZglos() {

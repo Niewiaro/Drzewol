@@ -80,10 +80,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>
 
-
-
-      // testowe to pod spodem
-
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
