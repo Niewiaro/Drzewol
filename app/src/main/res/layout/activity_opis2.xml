@@ -82,7 +82,7 @@
 
 
 
-      // testowe to pod spodem
+        // testowe to pod spodem
 
         <TextView
             android:id="@+id/textView"

@@ -75,7 +75,7 @@ public class Opis extends AppCompatActivity {
     }
 
     private void configurateButton() {
-                locationManager.requestLocationUpdates("gps", 5000, 0, locationListener);
+        locationManager.requestLocationUpdates("gps", 5000, 0, locationListener);
     }
 
 
@@ -83,11 +83,11 @@ public class Opis extends AppCompatActivity {
     static final int REQUEST_IMAGE_CAPTURE = 1;
 
     public void dispatchTakePictureIntent(View view) {
-            Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 
-            if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-                startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
-            }
+        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+        }
     }
 
     @Override

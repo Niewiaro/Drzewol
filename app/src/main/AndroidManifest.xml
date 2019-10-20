@@ -4,11 +4,10 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <!--<uses-permission android:name="android.permission.CAMERA" />-->
-    <uses-feature android:name="android.hardware.camera"
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- <uses-permission android:name="android.permission.CAMERA" /> -->
+    <uses-feature
+        android:name="android.hardware.camera"
         android:required="true" />
-    <!--<uses-permission android:name="android.hardware.camera" android:required="false"/>-->
 
     <application
         android:allowBackup="true"
@@ -17,10 +16,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Aparat"></activity>
+        <activity android:name=".Opis2"></activity>
         <activity
             android:name=".Opis"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -28,10 +27,10 @@
 
         <activity
             android:name=".Lista"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Zglos"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity android:name=".Mapa" />
         <activity android:name=".uploadClass" />
         <activity
