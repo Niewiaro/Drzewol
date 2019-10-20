@@ -40,7 +40,7 @@ public class Wybierz extends AppCompatActivity {
     }
 
     private void openZglos2() {
-        Intent intent = new Intent(this, Zglos.class);
+        Intent intent = new Intent(this, Zglos2.class);
         startActivity(intent);
     }
 }
