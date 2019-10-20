@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent sharedIntent = new Intent(MainActivity.this, Zglos.class);
+                Intent sharedIntent = new Intent(MainActivity.this, Wybierz.class);
 
                 Pair[] pairs = new Pair[1];
                 pairs[0] = new Pair<View, String>(aparat, "aparat123");
