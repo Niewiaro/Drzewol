@@ -33,27 +33,29 @@ public class uploadClass extends Activity {
         super.onCreate(savedInstanceState);
     }
 
-   /* protected void postPhoto(double ID){
+   /* void postPhoto(double ID){
 
         ImageView imageView;
+        imageView = findViewById(R.id.imageView2);
 
         FirebaseStorage storage = FirebaseStorage.getInstance();
+
         // Create a storage reference from our app
         StorageReference storageRef = storage.getReference();
 
         // Create a reference to "mountains.jpg"
-        StorageReference mountainsRef = storageRef.child("ZGL"+ID);
+        StorageReference photoRef = storageRef.child("ZGL"+ID);
 
         // Get the data from an ImageView as bytes
         imageView.setDrawingCacheEnabled(true);
         imageView.buildDrawingCache();
 
-        Bitmap bitmap = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
+        //Bitmap bitmap = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+        Opis.imageBitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
         byte[] data = baos.toByteArray();
 
-        UploadTask uploadTask = mountainsRef.putBytes(data);
+        UploadTask uploadTask = photoRef.putBytes(data);
         uploadTask.addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception exception) {
@@ -71,7 +73,6 @@ public class uploadClass extends Activity {
 
     //it has to be called when data has to be sent to the server
      public static void sendMessage(){
-
 
         //Toast.makeText(uploadClass.this, "Sending", Toast.LENGTH_SHORT).show();
 
