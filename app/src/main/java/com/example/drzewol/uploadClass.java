@@ -53,6 +53,7 @@ public class uploadClass extends Activity {
                     report.put("Description", MainActivity.Description);
                     report.put("Lat", MainActivity.Lat);
                     report.put("Long", MainActivity.Long);
+                    report.put("URL", "");
                     MainActivity.index+=1;   //increment index
                     report.put("ID", MainActivity.index);
 
@@ -63,6 +64,27 @@ public class uploadClass extends Activity {
                     Map<String, Object> INDEX = new HashMap<>();
                     INDEX.put("created", MainActivity.index);
                     db.collection("reports").document("INDEX").set(INDEX);
+                }
+            }
+        });
+    }
+
+    //function called whenever index value has to be updated
+    public static void setIndex(){
+
+        final FirebaseFirestore db = FirebaseFirestore.getInstance();
+        final DocumentReference docRef = db.collection("reports")
+                .document("INDEX");
+
+        //send a data request and set listener
+        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                DocumentSnapshot document;
+                if(task.isSuccessful()){
+                    document = task.getResult();
+                    MainActivity.index = document.getDouble("created");
+                    //Toast.makeText(getApplicationContext(), "Index ready", Toast.LENGTH_LONG).show();
                 }
             }
         });
