@@ -8,6 +8,9 @@
     <uses-feature
         android:name="android.hardware.camera"
         android:required="true" />
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="18" />
 
     <application
         android:allowBackup="true"

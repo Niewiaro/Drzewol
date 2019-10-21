@@ -1,15 +1,19 @@
 package com.example.drzewol;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -21,6 +25,9 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.io.IOException;
+import java.io.InputStream;
 
 import static com.example.drzewol.MainActivity.Lat;
 
@@ -36,6 +43,9 @@ public class Opis2 extends AppCompatActivity {
     double x2, y2;
     Boolean Raz;
 
+    private static final int GALLERY_REQUEST_CODE = 100;
+    private static final int REQUEST_READ_EXTERNAL_STORAGE = 4;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +59,8 @@ public class Opis2 extends AppCompatActivity {
         x = (EditText) findViewById(R.id.szerokosc);
         y = (EditText) findViewById(R.id.dlugosc);
         imageView = findViewById(R.id.imageView2);
+
+        pickFromGallery();
 
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -139,6 +151,41 @@ public class Opis2 extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void pickFromGallery(){
+        if (ContextCompat.checkSelfPermission(Opis2.this, Manifest.permission.READ_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
+            // Permission is not granted
+            // textView.setText("permission not granted");
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, REQUEST_READ_EXTERNAL_STORAGE);
+        } else {
+            // textView.setText("permission granted");
+
+            //Create an Intent with action as ACTION_PICK
+            Intent intent = new Intent(Intent.ACTION_PICK);
+            // Sets the type as image/*. This ensures only components of type image are selected
+            intent.setType("image/*");
+            //We pass an extra array with the accepted mime types. This will ensure only components with these MIME types as targeted.
+            String[] mimeTypes = {"image/jpeg", "image/png"};
+            intent.putExtra(Intent.EXTRA_MIME_TYPES, mimeTypes);
+            // Launching the Intent
+            startActivityForResult(intent, GALLERY_REQUEST_CODE);
+        }
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (resultCode == RESULT_OK && requestCode == GALLERY_REQUEST_CODE) {
+            try {
+                Uri selectedImage = data.getData();
+                InputStream imageStream = getContentResolver().openInputStream(selectedImage);
+                imageView.setImageBitmap(BitmapFactory.decodeStream(imageStream));
+            } catch (IOException exception) {
+                exception.printStackTrace();
+            }
+        }
     }
 
     @Override
