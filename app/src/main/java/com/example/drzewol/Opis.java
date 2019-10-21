@@ -65,7 +65,7 @@ public class Opis extends AppCompatActivity {
                     String textOut = editText.getText().toString();
                     MainActivity.Description = textOut;
 
-                    //uploadClass.sendMessage();
+                    uploadClass.sendMessage();
 
                     Toast.makeText(Opis.this, "Zgłoszenie wysłane!", Toast.LENGTH_SHORT).show();
 

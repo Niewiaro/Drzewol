@@ -61,8 +61,8 @@ public class uploadClass extends Activity {
 
                     //update INDEX with incremented value in proper directory
                     Map<String, Object> INDEX = new HashMap<>();
-                    INDEX.put("created", INDEX);
-                    db.collection("reports").document("INDEX").set(MainActivity.index);
+                    INDEX.put("created", MainActivity.index);
+                    db.collection("reports").document("INDEX").set(INDEX);
                 }
             }
         });
