@@ -70,7 +70,7 @@ public class Mapa extends AppCompatActivity implements OnMapReadyCallback {
                                     .title(document.getString("Title")));
 
                         } else {
-                            //Log.d("TAG", "No such document");
+
                         }
                     }
                     /*
@@ -80,7 +80,7 @@ public class Mapa extends AppCompatActivity implements OnMapReadyCallback {
                 }
             });
 
-            Toast.makeText(getApplicationContext(), "data ready", Toast.LENGTH_LONG).show();
+            //Toast.makeText(getApplicationContext(), "data ready", Toast.LENGTH_LONG).show();
 
         }
 

@@ -55,22 +55,19 @@ public class uploadClass extends Activity {
         }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                    photoRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                       @Override
-                       public void onSuccess(Uri uri) {
-                           Uri downloadUrl = uri;
-                           FirebaseFirestore db = FirebaseFirestore.getInstance();
-                           final DocumentReference docRef = db.collection("reports")
-                                   .document("ZGL"+ID);
+                photoRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                   @Override
+                   public void onSuccess(Uri uri) {
+                       Uri downloadUrl = uri;
+                       FirebaseFirestore db = FirebaseFirestore.getInstance();
+                       final DocumentReference docRef = db.collection("reports")
+                               .document("ZGL"+ID);
 
-                           Map<String, Object> url = new HashMap<>();
-                           url.put("URL", downloadUrl.toString());
-                           //db.collection("reports").document("ZGL"+ID)
-                           //        .update("URL", url);
-                           docRef.update("URL", url);
+                       Map<String, Object> url = new HashMap<>();
+                       docRef.update("URL", downloadUrl.toString());
 
-                       }
-                   });
+                   }
+               });
             }
         });
     }
