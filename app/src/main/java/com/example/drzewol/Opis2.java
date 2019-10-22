@@ -176,7 +176,7 @@ public class Opis2 extends AppCompatActivity {
         }
     }
 
-
+/*
 
     final private int REQUEST_CODE_ASK_PERMISSIONS = 123;
 
@@ -212,7 +212,7 @@ public class Opis2 extends AppCompatActivity {
 
 
 
-/*
+
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         switch (requestCode) {
