@@ -47,7 +47,7 @@ public class Opis2 extends AppCompatActivity {
     Button button, button2, button3;
     String x1, y1;
     double x2, y2;
-    Boolean Raz, Raz2;
+    Boolean Raz;
 
     private static final int GALLERY_REQUEST_CODE = 100;
 
@@ -66,11 +66,7 @@ public class Opis2 extends AppCompatActivity {
         y = (EditText) findViewById(R.id.dlugosc);
         imageView = findViewById(R.id.imageView2);
 
-        Raz2 = false;
-
         ASK_FOR_PERMISSIONS();
-
-
 
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
