@@ -105,7 +105,7 @@ public class Opis2 extends AppCompatActivity {
                         startActivity(intent);
                     }
                 };
-/*
+
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                     if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                         requestPermissions(new String[]{
@@ -115,7 +115,7 @@ public class Opis2 extends AppCompatActivity {
                         return;
                     }
                 }
-*/
+
                 configurateButton();
             }
         });
@@ -238,7 +238,8 @@ public class Opis2 extends AppCompatActivity {
             permissionsList.add(permission);
             // Check for Rationale Option
             if (!shouldShowRequestPermissionRationale(permission))
-                return false;
+                // bylo false
+                return false; // bylo false
         }
         return true;
     }
@@ -247,10 +248,10 @@ public class Opis2 extends AppCompatActivity {
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         switch (requestCode) {
-            /*case 10:
+            case 10:
                 if(grantResults.length>0 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
                     configurateButton();
-                return;*/
+                return;
             case REQUEST_CODE_ASK_MULTIPLE_PERMISSIONS:
                 {
                 Map<String, Integer> perms = new HashMap<String, Integer>();
