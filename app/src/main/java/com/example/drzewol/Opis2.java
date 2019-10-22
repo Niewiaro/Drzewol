@@ -1,11 +1,13 @@
 package com.example.drzewol;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.app.ActivityOptions;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -173,6 +175,63 @@ public class Opis2 extends AppCompatActivity {
             startActivityForResult(intent, GALLERY_REQUEST_CODE);
         }
     }
+
+/*
+
+    final private int REQUEST_CODE_ASK_PERMISSIONS = 123;
+
+    private void insertDummyContactWrapper() {
+        int hasWriteContactsPermission = checkSelfPermission(Manifest.permission.WRITE_CONTACTS);
+        if (hasWriteContactsPermission != PackageManager.PERMISSION_GRANTED) {
+            if (!shouldShowRequestPermissionRationale(Manifest.permission.WRITE_CONTACTS)) {
+                showMessageOKCancel("You need to allow access to Contacts",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                requestPermissions(new String[] {Manifest.permission.WRITE_CONTACTS},
+                                        REQUEST_CODE_ASK_PERMISSIONS);
+                            }
+                        });
+                return;
+            }
+            requestPermissions(new String[] {Manifest.permission.WRITE_CONTACTS},
+                    REQUEST_CODE_ASK_PERMISSIONS);
+            return;
+        }
+        insertDummyContact();
+    }
+
+    private void showMessageOKCancel(String message, DialogInterface.OnClickListener okListener) {
+        new AlertDialog.Builder(MainActivity.this)
+                .setMessage(message)
+                .setPositiveButton("OK", okListener)
+                .setNegativeButton("Cancel", null)
+                .create()
+                .show();
+    }
+
+
+
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        switch (requestCode) {
+            case REQUEST_CODE_ASK_PERMISSIONS:
+                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    // Permission Granted
+                    dispatchTakePictureIntent(null);
+                } else {
+                    // Permission Denied
+                    Toast.makeText(BetterCameraActivity.this, "WRITE_CONTACTS Denied", Toast.LENGTH_SHORT)
+                            .show();
+                }
+                break;
+            default:
+                super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+    }
+*/
+
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
