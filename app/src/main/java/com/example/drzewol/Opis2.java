@@ -212,7 +212,7 @@ public class Opis2 extends AppCompatActivity {
 
 
 
-
+/*
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         switch (requestCode) {
@@ -230,7 +230,7 @@ public class Opis2 extends AppCompatActivity {
                 super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         }
     }
-    
+*/
 
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
