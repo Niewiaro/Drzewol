@@ -44,10 +44,10 @@ public class Opis2 extends AppCompatActivity {
     LocationListener locationListener;
     EditText editText, editText2, x, y;
     ImageView imageView;
-    Button button, button2;
+    Button button, button2, button3;
     String x1, y1;
     double x2, y2;
-    Boolean Raz;
+    Boolean Raz, Raz2;
 
     private static final int GALLERY_REQUEST_CODE = 100;
 
@@ -58,6 +58,7 @@ public class Opis2 extends AppCompatActivity {
 
         button = (Button) findViewById(R.id.wyslij);
         button2 = (Button) findViewById(R.id.button);
+        button3 = (Button) findViewById(R.id.buttonGaleria);
         textView = (TextView) findViewById(R.id.textView);
         editText = (EditText) findViewById(R.id.zglosOpis);
         editText2 = (EditText) findViewById(R.id.zglosTytul);
@@ -65,7 +66,11 @@ public class Opis2 extends AppCompatActivity {
         y = (EditText) findViewById(R.id.dlugosc);
         imageView = findViewById(R.id.imageView2);
 
+        Raz2 = false;
+
         ASK_FOR_PERMISSIONS();
+
+
 
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -116,6 +121,13 @@ public class Opis2 extends AppCompatActivity {
                 }
 
                 configurateButton();
+            }
+        });
+
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ASK_FOR_PERMISSIONS();
             }
         });
 
