@@ -50,7 +50,6 @@ public class Opis2 extends AppCompatActivity {
     Boolean Raz;
 
     private static final int GALLERY_REQUEST_CODE = 100;
-    private static final int REQUEST_READ_EXTERNAL_STORAGE = 4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -204,10 +203,10 @@ public class Opis2 extends AppCompatActivity {
         final List<String> permissionsList = new ArrayList<String>();
         if (!addPermission(permissionsList, Manifest.permission.READ_EXTERNAL_STORAGE))
             permissionsNeeded.add("Gallery");
-        if (!addPermission(permissionsList, Manifest.permission.ACCESS_FINE_LOCATION))
+        /*if (!addPermission(permissionsList, Manifest.permission.ACCESS_FINE_LOCATION))
             permissionsNeeded.add("Fine Location");
         if (!addPermission(permissionsList, Manifest.permission.ACCESS_COARSE_LOCATION))
-            permissionsNeeded.add("Coarse Location");
+            permissionsNeeded.add("Coarse Location");*/
 
         if (permissionsList.size() > 0) {
             if (permissionsNeeded.size() > 0) {
@@ -221,6 +220,14 @@ public class Opis2 extends AppCompatActivity {
                             public void onClick(DialogInterface dialog, int which) {
                                 requestPermissions(permissionsList.toArray(new String[permissionsList.size()]),
                                         REQUEST_CODE_ASK_MULTIPLE_PERMISSIONS);
+                            }
+                        },
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                /*Intent intent = new Intent(Opis2.this, MainActivity.class);
+                                startActivity(intent);*/
+                                openMainActivity();
                             }
                         });
                 return;
@@ -257,21 +264,23 @@ public class Opis2 extends AppCompatActivity {
                 Map<String, Integer> perms = new HashMap<String, Integer>();
                 // Initial
                 perms.put(Manifest.permission.READ_EXTERNAL_STORAGE, PackageManager.PERMISSION_GRANTED);
-                perms.put(Manifest.permission.ACCESS_FINE_LOCATION, PackageManager.PERMISSION_GRANTED);
-                perms.put(Manifest.permission.ACCESS_COARSE_LOCATION, PackageManager.PERMISSION_GRANTED);
+                /*perms.put(Manifest.permission.ACCESS_FINE_LOCATION, PackageManager.PERMISSION_GRANTED);
+                perms.put(Manifest.permission.ACCESS_COARSE_LOCATION, PackageManager.PERMISSION_GRANTED);*/
                 // Fill with results
                 for (int i = 0; i < permissions.length; i++)
                     perms.put(permissions[i], grantResults[i]);
                 // Check for ACCESS_FINE_LOCATION
                 if (perms.get(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
-                        && perms.get(Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
-                        && perms.get(Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+                        /*&& perms.get(Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
+                        && perms.get(Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED*/) {
                     // All Permissions Granted
                     pickFromGallery();
                 } else {
                     // Permission Denied
                     Toast.makeText(Opis2.this, "Some Permission is Denied", Toast.LENGTH_SHORT)
                             .show();
+
+                    ASK_FOR_PERMISSIONS();
                 }
                 }
                 break;
@@ -280,11 +289,11 @@ public class Opis2 extends AppCompatActivity {
         }
     }
 
-    private void showMessageOKCancel(String message, DialogInterface.OnClickListener okListener) {
+    private void showMessageOKCancel(String message, DialogInterface.OnClickListener okListener, DialogInterface.OnClickListener cancelListener) {
         new AlertDialog.Builder(Opis2.this)
                 .setMessage(message)
                 .setPositiveButton("OK", okListener)
-                .setNegativeButton("Cancel", null)
+                .setNegativeButton("Cancel", cancelListener)
                 .create()
                 .show();
     }
