@@ -30,6 +30,10 @@ import android.widget.Toast;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import static com.example.drzewol.MainActivity.Lat;
 
@@ -62,7 +66,7 @@ public class Opis2 extends AppCompatActivity {
         y = (EditText) findViewById(R.id.dlugosc);
         imageView = findViewById(R.id.imageView2);
 
-        pickFromGallery();
+        ASK_FOR_PERMISSIONS();
 
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,7 +105,7 @@ public class Opis2 extends AppCompatActivity {
                         startActivity(intent);
                     }
                 };
-
+/*
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                     if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                         requestPermissions(new String[]{
@@ -111,7 +115,7 @@ public class Opis2 extends AppCompatActivity {
                         return;
                     }
                 }
-
+*/
                 configurateButton();
             }
         });
@@ -156,6 +160,7 @@ public class Opis2 extends AppCompatActivity {
     }
 
     private void pickFromGallery(){
+/*
         if (ContextCompat.checkSelfPermission(Opis2.this, Manifest.permission.READ_EXTERNAL_STORAGE)
                 != PackageManager.PERMISSION_GRANTED) {
             // Permission is not granted
@@ -163,7 +168,7 @@ public class Opis2 extends AppCompatActivity {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, REQUEST_READ_EXTERNAL_STORAGE);
         } else {
             // textView.setText("permission granted");
-
+*/
             //Create an Intent with action as ACTION_PICK
             Intent intent = new Intent(Intent.ACTION_PICK);
             // Sets the type as image/*. This ensures only components of type image are selected
@@ -173,65 +178,7 @@ public class Opis2 extends AppCompatActivity {
             intent.putExtra(Intent.EXTRA_MIME_TYPES, mimeTypes);
             // Launching the Intent
             startActivityForResult(intent, GALLERY_REQUEST_CODE);
-        }
     }
-
-/*
-
-    final private int REQUEST_CODE_ASK_PERMISSIONS = 123;
-
-    private void insertDummyContactWrapper() {
-        int hasWriteContactsPermission = checkSelfPermission(Manifest.permission.WRITE_CONTACTS);
-        if (hasWriteContactsPermission != PackageManager.PERMISSION_GRANTED) {
-            if (!shouldShowRequestPermissionRationale(Manifest.permission.WRITE_CONTACTS)) {
-                showMessageOKCancel("You need to allow access to Contacts",
-                        new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                requestPermissions(new String[] {Manifest.permission.WRITE_CONTACTS},
-                                        REQUEST_CODE_ASK_PERMISSIONS);
-                            }
-                        });
-                return;
-            }
-            requestPermissions(new String[] {Manifest.permission.WRITE_CONTACTS},
-                    REQUEST_CODE_ASK_PERMISSIONS);
-            return;
-        }
-        insertDummyContact();
-    }
-
-    private void showMessageOKCancel(String message, DialogInterface.OnClickListener okListener) {
-        new AlertDialog.Builder(MainActivity.this)
-                .setMessage(message)
-                .setPositiveButton("OK", okListener)
-                .setNegativeButton("Cancel", null)
-                .create()
-                .show();
-    }
-
-
-
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-        switch (requestCode) {
-            case REQUEST_CODE_ASK_PERMISSIONS:
-                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    // Permission Granted
-                    dispatchTakePictureIntent(null);
-                } else {
-                    // Permission Denied
-                    Toast.makeText(BetterCameraActivity.this, "WRITE_CONTACTS Denied", Toast.LENGTH_SHORT)
-                            .show();
-                }
-                break;
-            default:
-                super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        }
-    }
-*/
-
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -247,15 +194,103 @@ public class Opis2 extends AppCompatActivity {
         }
     }
 
+
+
+    final private int REQUEST_CODE_ASK_MULTIPLE_PERMISSIONS = 124;
+
+    private void ASK_FOR_PERMISSIONS() {
+        List<String> permissionsNeeded = new ArrayList<String>();
+
+        final List<String> permissionsList = new ArrayList<String>();
+        if (!addPermission(permissionsList, Manifest.permission.READ_EXTERNAL_STORAGE))
+            permissionsNeeded.add("Gallery");
+        if (!addPermission(permissionsList, Manifest.permission.ACCESS_FINE_LOCATION))
+            permissionsNeeded.add("Fine Location");
+        if (!addPermission(permissionsList, Manifest.permission.ACCESS_COARSE_LOCATION))
+            permissionsNeeded.add("Coarse Location");
+
+        if (permissionsList.size() > 0) {
+            if (permissionsNeeded.size() > 0) {
+                // Need Rationale
+                String message = "You need to grant access to " + permissionsNeeded.get(0);
+                for (int i = 1; i < permissionsNeeded.size(); i++)
+                    message = message + ", " + permissionsNeeded.get(i);
+                showMessageOKCancel(message,
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                requestPermissions(permissionsList.toArray(new String[permissionsList.size()]),
+                                        REQUEST_CODE_ASK_MULTIPLE_PERMISSIONS);
+                            }
+                        });
+                return;
+            }
+            requestPermissions(permissionsList.toArray(new String[permissionsList.size()]),
+                    REQUEST_CODE_ASK_MULTIPLE_PERMISSIONS);
+            return;
+        }
+
+        pickFromGallery();
+    }
+
+    private boolean addPermission(List<String> permissionsList, String permission) {
+        if (checkSelfPermission(permission) != PackageManager.PERMISSION_GRANTED) {
+            permissionsList.add(permission);
+            // Check for Rationale Option
+            if (!shouldShowRequestPermissionRationale(permission))
+                return false;
+        }
+        return true;
+    }
+
+
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-        switch (requestCode){
-            case 10:
+        switch (requestCode) {
+            /*case 10:
                 if(grantResults.length>0 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
                     configurateButton();
-                return;
+                return;*/
+            case REQUEST_CODE_ASK_MULTIPLE_PERMISSIONS:
+                {
+                Map<String, Integer> perms = new HashMap<String, Integer>();
+                // Initial
+                perms.put(Manifest.permission.READ_EXTERNAL_STORAGE, PackageManager.PERMISSION_GRANTED);
+                perms.put(Manifest.permission.ACCESS_FINE_LOCATION, PackageManager.PERMISSION_GRANTED);
+                perms.put(Manifest.permission.ACCESS_COARSE_LOCATION, PackageManager.PERMISSION_GRANTED);
+                // Fill with results
+                for (int i = 0; i < permissions.length; i++)
+                    perms.put(permissions[i], grantResults[i]);
+                // Check for ACCESS_FINE_LOCATION
+                if (perms.get(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
+                        && perms.get(Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
+                        && perms.get(Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+                    // All Permissions Granted
+                    pickFromGallery();
+                } else {
+                    // Permission Denied
+                    Toast.makeText(Opis2.this, "Some Permission is Denied", Toast.LENGTH_SHORT)
+                            .show();
+                }
+                }
+                break;
+            default:
+                super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         }
     }
+
+    private void showMessageOKCancel(String message, DialogInterface.OnClickListener okListener) {
+        new AlertDialog.Builder(Opis2.this)
+                .setMessage(message)
+                .setPositiveButton("OK", okListener)
+                .setNegativeButton("Cancel", null)
+                .create()
+                .show();
+    }
+
+
+
+
 
     private void configurateButton() {
         locationManager.requestLocationUpdates("gps", 5000, 0, locationListener);
