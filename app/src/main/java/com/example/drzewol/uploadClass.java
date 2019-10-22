@@ -33,10 +33,10 @@ public class uploadClass extends Activity {
         super.onCreate(savedInstanceState);
     }
 
-   /* void postPhoto(double ID){
+    static void postPhoto(double ID){
 
-        ImageView imageView;
-        imageView = findViewById(R.id.imageView2);
+        //ImageView imageView;
+        //imageView = findViewById(R.id.imageView2);
 
         FirebaseStorage storage = FirebaseStorage.getInstance();
 
@@ -45,10 +45,11 @@ public class uploadClass extends Activity {
 
         // Create a reference to "mountains.jpg"
         StorageReference photoRef = storageRef.child("ZGL"+ID);
+        //StorageReference photoRef = storageRef.child("images/mountains.jpg");
 
         // Get the data from an ImageView as bytes
-        imageView.setDrawingCacheEnabled(true);
-        imageView.buildDrawingCache();
+        //imageView.setDrawingCacheEnabled(true);
+        //imageView.buildDrawingCache();
 
         //Bitmap bitmap = ((BitmapDrawable) imageView.getDrawable()).getBitmap();
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -68,12 +69,12 @@ public class uploadClass extends Activity {
                 // ...
             }
         });
-    }*/
+    }
 
 
     //it has to be called when data has to be sent to the server
      public static void sendMessage(){
-
+        postPhoto(MainActivity.index);
         //Toast.makeText(uploadClass.this, "Sending", Toast.LENGTH_SHORT).show();
 
         final FirebaseFirestore db = FirebaseFirestore.getInstance();

@@ -33,7 +33,7 @@ public class Opis extends AppCompatActivity {
     LocationListener locationListener;
     EditText editText, editText2;
     ImageView imageView;
-    Bitmap imageBitmap;
+    public static Bitmap imageBitmap;
     Button button;
 
     Boolean Raz;
