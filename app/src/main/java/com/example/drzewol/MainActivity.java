@@ -104,5 +104,8 @@ public class MainActivity extends AppCompatActivity {
 
         //get the current INDEX from server (needed for map display)
         uploadClass.setIndex();
+
+        //clear all lists
+        storageClass.clearLists();
     }
 }
