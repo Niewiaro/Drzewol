@@ -53,34 +53,43 @@ public class Mapa extends AppCompatActivity implements OnMapReadyCallback {
 
 
         for (double n = 1; n <= MainActivity.index; n += 1) {
-            DocumentReference docRef = db.collection("reports").document("ZGL" + n);
 
-            docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                @Override
-                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                    if (task.isSuccessful()) {
-                        DocumentSnapshot document = task.getResult();
-                        if (document.exists()) {
+            if(storageClass.titleList.isEmpty()) {
+                DocumentReference docRef = db.collection("reports").document("ZGL" + n);
 
-                            mMap = googleMap;
+                docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        if (task.isSuccessful()) {
+                            DocumentSnapshot document = task.getResult();
+                            if (document.exists()) {
 
-                            LatLng newLoc = new LatLng(document.getDouble("Lat"),
-                                    document.getDouble("Long")); //new object holding coords
-                            mMap.addMarker(new MarkerOptions().position(newLoc)
-                                    .title(document.getString("Title")));
+                                mMap = googleMap;
 
-                        } else {
+                                LatLng newLoc = new LatLng(document.getDouble("Lat"),
+                                        document.getDouble("Long")); //new object holding coords
+                                mMap.addMarker(new MarkerOptions().position(newLoc)
+                                        .title(document.getString("Title")));
+                                /*
+                                storageClass.latList.add(document.getDouble("Lat"));//document.getDouble("ID").intValue(),
+                                storageClass.longList.add(document.getDouble("Long"));
+                                storageClass.titleList.add(document.getString("Title"));
+                                storageClass.descriptionList.add(document.getString("Description"));
+                                storageClass.URLList.add(document.getString("URL"));*/
 
+
+                            } else {
+
+                            }
                         }
-                    }
                     /*
                     else {
                         Log.d("TAG", "get failed with ", task.getException());
                     }*/
-                }
-            });
+                    }
+                });
 
-            //Toast.makeText(getApplicationContext(), "data ready", Toast.LENGTH_LONG).show();
+            }
 
         }
 
