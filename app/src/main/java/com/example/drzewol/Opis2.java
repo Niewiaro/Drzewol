@@ -194,7 +194,9 @@ public class Opis2 extends AppCompatActivity {
             try {
                 Uri selectedImage = data.getData();
                 InputStream imageStream = getContentResolver().openInputStream(selectedImage);
-                imageView.setImageBitmap(BitmapFactory.decodeStream(imageStream));
+                Bitmap Opis2Bitmap = BitmapFactory.decodeStream(imageStream);
+                Opis.imageBitmap = Opis2Bitmap;
+                imageView.setImageBitmap(Opis2Bitmap);
             } catch (IOException exception) {
                 exception.printStackTrace();
             }
