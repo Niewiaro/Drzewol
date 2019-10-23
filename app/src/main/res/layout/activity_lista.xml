@@ -39,6 +39,7 @@
         android:id="@+id/dzban"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="openlista2Activity"
         app:srcCompat="@drawable/dzban" />
 
     <Button

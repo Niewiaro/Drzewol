@@ -2,6 +2,7 @@ package com.example.drzewol;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -39,5 +40,10 @@ public class Lista extends AppCompatActivity {
         });
 
 
+    }
+
+    public void openlista2Activity(View v) {
+        Intent intent = new Intent(this, lista2Activity.class);
+        startActivity(intent);
     }
 }
