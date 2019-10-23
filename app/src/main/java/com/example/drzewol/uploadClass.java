@@ -91,7 +91,7 @@ public class uploadClass extends Activity {
                     //put all values entered to HashMap
                     report.put("Title", MainActivity.Title);
                     report.put("Description", MainActivity.Description);
-                    report.put("Lat", MainActivity.Lat);
+                    report.put("Lat", MainActivity.lat);
                     report.put("Long", MainActivity.Long);
                     report.put("URL", "");
                     report.put("isCleaned", false);

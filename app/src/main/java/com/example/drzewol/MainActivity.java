@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     Animation choinka_z_prawej, napis_z_lewej;
 
     static public String Title = "", Description = "";
-    static public double Lat = 0.0000, Long = 0.0000;
+    static public double lat = 0.0000, Long = 0.0000;
     static public double index = 0;
 
     @Override

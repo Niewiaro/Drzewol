@@ -35,7 +35,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static com.example.drzewol.MainActivity.Lat;
+import static com.example.drzewol.MainActivity.lat;
 
 public class Opis2 extends AppCompatActivity {
 
@@ -144,7 +144,7 @@ public class Opis2 extends AppCompatActivity {
 
                 else{
                     x2 = Double.parseDouble(x.getText().toString());
-                    Lat = x2;
+                    lat = x2;
 
                     y2 = Double.parseDouble(y.getText().toString());
                     MainActivity.Long = y2;

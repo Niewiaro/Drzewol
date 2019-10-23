@@ -24,7 +24,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import static com.example.drzewol.MainActivity.Lat;
+import static com.example.drzewol.MainActivity.lat;
 
 public class Opis extends AppCompatActivity {
 
@@ -115,9 +115,9 @@ public class Opis extends AppCompatActivity {
                 @Override
                 public void onLocationChanged(Location location) {
                     if(!Raz) {
-                        Lat = location.getLatitude()%10;
+                        lat = location.getLatitude()%10;
                         MainActivity.Long = location.getLongitude();
-                        textView.setText("x: " + Lat + "\ny: " + MainActivity.Long);
+                        textView.setText("x: " + lat + "\ny: " + MainActivity.Long);
                         Raz= true;
                     }
                 }
