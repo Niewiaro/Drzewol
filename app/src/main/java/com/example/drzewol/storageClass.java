@@ -42,6 +42,7 @@ public class storageClass {
     public static List titleList = new ArrayList(1);
     public static List descriptionList = new ArrayList(1);
     public static List URLList = new ArrayList(1);
+    public static List isCleanedList = new ArrayList(1);
 
     public static void clearLists(){
         IDList.clear();
@@ -50,5 +51,6 @@ public class storageClass {
         titleList.clear();
         descriptionList.clear();
         URLList.clear();
+        isCleanedList.clear();
     }
 }

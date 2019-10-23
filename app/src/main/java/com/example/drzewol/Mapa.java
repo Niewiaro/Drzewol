@@ -124,7 +124,8 @@ public class Mapa extends AppCompatActivity implements OnMapReadyCallback {
         for (double n = 1; n <= MainActivity.index; n += 1) {
 
             if(storageClass.titleList.isEmpty()) {
-                DocumentReference docRef = db.collection("reports").document("ZGL" + n);
+                DocumentReference docRef = db.collection("reports")
+                        .document("ZGL" + n);
 
                 docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                     @Override
@@ -139,12 +140,14 @@ public class Mapa extends AppCompatActivity implements OnMapReadyCallback {
                                         document.getDouble("Long")); //new object holding coords
                                 mMap.addMarker(new MarkerOptions().position(newLoc)
                                         .title(document.getString("Title")));
-                                /*
+
                                 storageClass.latList.add(document.getDouble("Lat"));//document.getDouble("ID").intValue(),
                                 storageClass.longList.add(document.getDouble("Long"));
                                 storageClass.titleList.add(document.getString("Title"));
                                 storageClass.descriptionList.add(document.getString("Description"));
-                                storageClass.URLList.add(document.getString("URL"));*/
+                                storageClass.URLList.add(document.getString("URL"));
+                                storageClass.IDList.add(document.getDouble("ID"));
+                                storageClass.isCleanedList.add(document.getBoolean("isCleaned"));
 
 
                             } else {

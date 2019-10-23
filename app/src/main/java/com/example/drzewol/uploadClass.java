@@ -94,6 +94,7 @@ public class uploadClass extends Activity {
                     report.put("Lat", MainActivity.Lat);
                     report.put("Long", MainActivity.Long);
                     report.put("URL", "");
+                    report.put("isCleaned", false);
                     MainActivity.index+=1;   //increment index
                     report.put("ID", MainActivity.index);
 
