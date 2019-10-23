@@ -115,7 +115,7 @@ public class Opis extends AppCompatActivity {
                 @Override
                 public void onLocationChanged(Location location) {
                     if(!Raz) {
-                        lat = location.getLatitude()%10;
+                        lat = location.getLatitude();
                         MainActivity.Long = location.getLongitude();
                         textView.setText("x: " + lat + "\ny: " + MainActivity.Long);
                         Raz= true;
