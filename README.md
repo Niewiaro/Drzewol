@@ -4,9 +4,9 @@ Temat główny tegorocznej edycji to "Problemy globalne". Po wielu naradach zdec
 że weźmiemy na cel bardzo poważny problem w Polsce - zaśmiecanie przyrody.
 
 ## Jaki jest nasz cel?
-Mamy dwa zasadnicze cele, które chcemy osiągnąć: po pierwsze chcemy ułatwić służbom porządkowym 
+Mamy dwa zasadnicze cele, do których dążymy: po pierwsze chcemy ułatwić służbom porządkowym 
 znajdywanie nielegalnych wysypisk śmieci. Po drugie, poprzez rosnącą bazę zgłoszeń chcemy pokazać
-jak poważny jest to problem.
+społeczeństwu jak poważny jest to problem.
 
 ## Jak używać naszej apki?
 To bardzo proste!
