@@ -75,8 +75,8 @@ Aktualny prorotyp jest dobrą bazą, która może być rozwinięta na wiele spos
 
 ## Pomysły na dalszy rozwój
 Jak wiadomo mamy wiele problemów w których rozwiązaniu może pomóc aplikacja tego typu. Na przykład: [/n]
--zagrożenia biologiczne (np. ścieki odprowadzane do rzek) [/n]
--miejsca niebezpieczne, takie jak stare budynki [/n]
+-zagrożenia biologiczne (np. ścieki odprowadzane do rzek) /n
+-miejsca niebezpieczne, takie jak stare budynki /n
 
 Budujądc aktualną wersję aplikacji stworzyliśmy platformę, którą łątwo rozwinąć o takie bądź inne
 funkcjonalności, poprzez dodanie paru pól do wyboru typu zgłoszenia. W ten sposób można stworzyć 
