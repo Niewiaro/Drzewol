@@ -21,6 +21,16 @@ Jeśli chcesz zobaczyć zgłoszenia dodane przez innych użytkowników, możesz 
 Pinezki pokażą lokalizacje innych zgłoszeń, a po kliknięciu w jedną z nich wyświetlą się dokłądne dane.
  
 ## instalacja
+Aplikacja instalowana jest jak zwykły plik .apk na telefonie.
+W zależności od wersji systemu Android, należy zezwolić na pobieranie aplikacji z nieznanych źródeł.
+Dobrze opisuje to poniższy poradnik:
+https://android.com.pl/porady/250018-aplikacje-z-nieznanych-zrodel/
+Gdy aplikacja zostanie pobrana, należy otworzyć ją i postępować zgodnie z instrukcjami instalatora.
+
+I tyle wystarczy by zacząć pomagać naszej planecie!
+
+Uwaga! Aplikacja działa jedynie na smartfonach z systemem operacyjnym typu Android wersji 6.0
+bądź wyższej
 
 
 # Rozwiązania techniczne
@@ -65,10 +75,13 @@ Jak wiadomo mamy wiele problemów w których rozwiązaniu może pomóc aplikacja
 -zagrożenia biologiczne (np. ścieki odprowadzane do rzek)
 -miejsca niebezpieczne, takie jak stare budynki
 
-Budujądc aktualną wersję aplikacji stworzyliśmy platformę, którą łątwo rozwinąć o taki bądź inne
+Budujądc aktualną wersję aplikacji stworzyliśmy platformę, którą łątwo rozwinąć o takie bądź inne
 funkcjonalności, poprzez dodanie paru pól do wyboru typu zgłoszenia. W ten sposób można stworzyć 
 skuteczny system powiadamiania o wszelkich zagrożeniach, w którym to właśnie zwykli przechodnie
 mogą poinformować odpowiednie złużby o nowym zagrożeniu bądź miejscu niebezpiecznym.
+
+# Licencja
+
 
 
 
