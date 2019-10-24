@@ -65,18 +65,25 @@ Aktualny prorotyp jest dobrą bazą, która może być rozwinięta na wiele spos
     czy zgłoszenie jest prawidłowe. Gdy sztuczna inteligencja wykryłaby, że na zdjęciu nie ma śmieci
     aplikacja powiadomiła by o tym nas (developerów aplikacji) abyśmy mogli zadecydować czy umieścić
     zgłoszenie w bazie danych na stałe. Wiemy już, że takie rozwiązanie jest jak najbardziej 
-    możliwe do zastosowania, ale nie zdążyliśmy go wprowadzić [/n]
+    możliwe do zastosowania, ale nie zdążyliśmy go wprowadzić
+    
 -przydatne byłoby wprowadzenie panelu dla służb porządkowych, które mogłyby oznaczać, że śmieci 
-    zostały usunięte [/n]
+    zostały usunięte
+    
 -dane na serwerze Firebase powinny zostać zabezpieczone (aktualnie nie wprowadziliśmy żadnych
-    zabezpieczeń, gdyż jest to prototyp aplikacji) [/n]
--przy rosnącej ilości zgłoszeń, wymagane będzie wykupienie lepszej wersji serwera [/n]
--kod powinien zostać zoptymalizwany dla lepszej komunikacji z serwerem danych [/n]
+    zabezpieczeń, gdyż jest to prototyp aplikacji)
+    
+-przy rosnącej ilości zgłoszeń, wymagane będzie wykupienie lepszej wersji serwera
+
+-kod powinien zostać zoptymalizwany dla lepszej komunikacji z serwerem danych
 
 ## Pomysły na dalszy rozwój
-Jak wiadomo mamy wiele problemów w których rozwiązaniu może pomóc aplikacja tego typu. Na przykład: [/n]
--zagrożenia biologiczne (np. ścieki odprowadzane do rzek) /n
--miejsca niebezpieczne, takie jak stare budynki /n
+Jak wiadomo mamy wiele problemów w których rozwiązaniu może pomóc aplikacja tego typu. Na przykład:
+
+-zagrożenia biologiczne (np. ścieki odprowadzane do rzek)
+
+-miejsca niebezpieczne, takie jak stare budynki 
+
 
 Budujądc aktualną wersję aplikacji stworzyliśmy platformę, którą łątwo rozwinąć o takie bądź inne
 funkcjonalności, poprzez dodanie paru pól do wyboru typu zgłoszenia. W ten sposób można stworzyć 
