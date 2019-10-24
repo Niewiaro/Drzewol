@@ -19,6 +19,8 @@ danych.
 
 Jeśli chcesz zobaczyć zgłoszenia dodane przez innych użytkowników, możesz skorzystać z wbudowanej mapy.
 Pinezki pokażą lokalizacje innych zgłoszeń, a po kliknięciu w jedną z nich wyświetlą się dokłądne dane.
+
+Uwaga! Nowo dodane zgłoszenie może być widoczne na mapie dopiero po ponownym uruchomieniu aplikacji.
  
 ## Instalacja
 Aplikacja instalowana jest jak zwykły plik .apk na telefonie.
