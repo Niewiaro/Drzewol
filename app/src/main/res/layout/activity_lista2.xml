@@ -1,25 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-tools:context=".lista2Activity">
-
-<TextView
-    android:id="@+id/textView3"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:textAlignment="center"
-    android:textSize="30dp"
-    android:text="Ostatnie zgłoszenie:" />
+    android:layout_height="match_parent"
+    android:background="@drawable/tlo_lista"
+    tools:context=".lista2Activity">
 
-<TextView
-    android:id="@+id/textViewOut"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:textSize="20dp"
-    android:layout_below="@+id/textView3"
-    android:text="TextView" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="Lista"
+            android:textSize="50dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:transitionName="lista123"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/lista" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Ostatnie zgłoszenie:"
+            android:textAlignment="center"
+            android:textSize="30dp"
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            tools:layout_editor_absoluteX="-13dp" />
+
+        <TextView
+            android:id="@+id/textViewOut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:textSize="25dp"
+            android:text="Brak zgłoszeń. Wyślij swoje pierwsze! ;)"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </RelativeLayout>
