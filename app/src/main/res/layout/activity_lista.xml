@@ -35,12 +35,12 @@
             app:srcCompat="@drawable/lista" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <ImageView
+    <!--<ImageView
         android:id="@+id/dzban"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="openlista2Activity"
-        app:srcCompat="@drawable/dzban" />
+        app:srcCompat="@drawable/dzban" />-->
 
     <Button
         android:id="@+id/spin"
