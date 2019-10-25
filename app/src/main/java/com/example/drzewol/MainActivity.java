@@ -130,8 +130,9 @@ public class MainActivity extends AppCompatActivity {
             fos.write(text.getBytes());
 
 //            mEditText.getText().clear();
-            Toast.makeText(this, "Saved to " + getFilesDir() + "/" + FILE_NAME,
-                    Toast.LENGTH_LONG).show();
+            
+//            Toast.makeText(this, "Saved to " + getFilesDir() + "/" + FILE_NAME,
+//                    Toast.LENGTH_LONG).show();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {

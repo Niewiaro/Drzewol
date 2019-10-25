@@ -72,6 +72,8 @@ public class uploadClass extends Activity {
      public static void sendMessage(){
         //Toast.makeText(uploadClass.this, "Sending", Toast.LENGTH_SHORT).show();
 
+        MainActivity.zgloszone = true;
+
         final FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         //creating docRef which asks for document INDEX in reports
@@ -107,8 +109,6 @@ public class uploadClass extends Activity {
                     db.collection("reports").document("INDEX").set(INDEX);
 
                     postPhoto(MainActivity.index);
-
-                    MainActivity.zgloszone = true;
                 }
             }
         });
