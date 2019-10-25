@@ -95,7 +95,7 @@ skuteczny system powiadamiania o wszelkich zagrożeniach, w którym to właśnie
 mogą poinformować odpowiednie złużby o nowym zagrożeniu bądź miejscu niebezpiecznym.
 
 # Licencja
-Aplikacja jest dostępna na zasadach licencji GPL V3
+Aplikacja jest dostępna na zasadach licencji GPL V3. Więcej informacji w pliku LICENCE.
 
 
 
