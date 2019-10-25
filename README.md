@@ -49,8 +49,8 @@ map Google.
 Jest to rozbudowana, asynchroniczna baza danych która gwarantuje niezwaodność transmisji danych.
 Dodatkowo jej zastosowanie w aplikacji jest stosunkowo proste i nie rodzi licznych błędów które mogą
 prowadzić do zmiany a nawet utraty wysyłanych danych. Jedynym minusem tego rozwiązania są ograniczenia
-darmowej wersji, które narzucają dość poważne ograniczenia w ilości przechowywanych danych oraz
-dziennej ilości odczytów i zapisów na serwerze.
+darmowej wersji, które narzucają dość poważne limity w ilości przechowywanych danych oraz
+dziennej ilości odczytów i zapisów na serwerze (50000 odczytów/dzień oraz 20000 zapisów/dzień).
 
 ## Google Maps API
 Pozwala ono na niezawodne wyświetlanie wszelkiego rodzaju map, umożliwiając korzystanie z wielu
