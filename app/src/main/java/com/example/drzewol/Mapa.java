@@ -107,8 +107,8 @@ public class Mapa extends AppCompatActivity implements OnMapReadyCallback {
 
         final FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-        mMap.getUiSettings().setMyLocationButtonEnabled(false);
-        mMap.setMyLocationEnabled(true);
+        /*mMap.getUiSettings().setMyLocationButtonEnabled(false);
+        mMap.setMyLocationEnabled(true);*/
 
         LatLng Cracow = new LatLng(50.06, 19.94); //new object holding cracows' coords
         mMap.addMarker(new MarkerOptions().position(Cracow).title("Cracow (marker testowy)"));   //place new marker
