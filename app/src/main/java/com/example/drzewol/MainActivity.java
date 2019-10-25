@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent sharedIntent = new Intent(MainActivity.this, Lista.class);
+                Intent sharedIntent = new Intent(MainActivity.this, lista2Activity.class);
 
                 Pair[] pairs = new Pair[1];
                 pairs[0] = new Pair<View, String>(lista, "lista123");
