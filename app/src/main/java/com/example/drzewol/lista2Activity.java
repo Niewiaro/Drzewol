@@ -78,9 +78,9 @@ public class lista2Activity extends AppCompatActivity {
                 while ((text = br.readLine()) != null)
                     sb.append(text).append("\n");
 
-                sb.append("\n\tDługość geograficzna:\n");
-                sb.append(LAT);
                 sb.append("\n\tSzerokość geograficzna:\n");
+                sb.append(LAT);
+                sb.append("\n\tDługość geograficzna:\n");
                 sb.append(LONG);
             } else {
                 sb.append("\n\tNie masz jeszcze żadnego zgłoszenia!\n");
