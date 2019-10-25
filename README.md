@@ -21,6 +21,8 @@ Jeśli chcesz zobaczyć zgłoszenia dodane przez innych użytkowników, możesz 
 Pinezki pokażą lokalizacje innych zgłoszeń, a po kliknięciu w jedną z nich wyświetlą się dokłądne dane.
 
 Uwaga! Nowo dodane zgłoszenie może być widoczne na mapie dopiero po ponownym uruchomieniu aplikacji.
+
+W menu lista wyświetli się ostanie zgłoszenie i jego szczegóły.
  
 ## Instalacja
 Aplikacja instalowana jest jak zwykły plik .apk na telefonie.
@@ -62,7 +64,10 @@ fukcji opracowanych przez Google.
 # Jak możemy dalej rozwijać aplikację?
 Aktualny prorotyp jest dobrą bazą, która może być rozwinięta na wiele sposobów. 
 
-## Zmiany które powinny zostać wprowadzone gdy aplikacja miałaby trafić na rynek:
+## Zmiany które powinny zostać wprowadzone w kolejnych wersjach aplikacji:
+-z racji na brak czasu nie udało nam się dodać fukcji wyświetlania szczegółow zgłoszenia po kliknięciu
+    markera na mapie.
+
 -największą zmianą jaką chcemy wprowadzić jest implementacja sztucznej inteligencji, do oceny
     czy zgłoszenie jest prawidłowe. Gdy sztuczna inteligencja wykryłaby, że na zdjęciu nie ma śmieci
     aplikacja powiadomiła by o tym nas (developerów aplikacji) abyśmy mogli zadecydować czy umieścić
