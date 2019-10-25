@@ -37,9 +37,6 @@
             android:value="AIzaSyCG9Jmc-oJKDg0kkHoOvj-HncAzKupJpIg" />
 
         <activity
-            android:name=".Lista"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".Zglos"
             android:screenOrientation="portrait" />
         <activity android:name=".Mapa" />
