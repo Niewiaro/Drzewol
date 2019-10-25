@@ -16,8 +16,13 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.Task;
+
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -29,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
     static public String Title = "", Description = "";
     static public double lat = 0.0000, Long = 0.0000;
     static public double index = 0;
+
+    static public boolean zgloszone  = false;
+    private static final String FILE_NAME = "lastReport.txt";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,5 +115,35 @@ public class MainActivity extends AppCompatActivity {
 
         //clear all lists
         storageClass.clearLists();
+
+        if(zgloszone)
+            saveLista();
+    }
+
+
+    public void saveLista() {
+        String text = Title + "\n" + ((double) Math.round(lat * 100000) / 100000) + "\n" + ((double) Math.round(Long * 100000) / 100000) + "\n" + Description; // mEditText.getText().toString();
+        FileOutputStream fos = null;
+
+        try {
+            fos = openFileOutput(FILE_NAME, MODE_PRIVATE);
+            fos.write(text.getBytes());
+
+//            mEditText.getText().clear();
+            Toast.makeText(this, "Saved to " + getFilesDir() + "/" + FILE_NAME,
+                    Toast.LENGTH_LONG).show();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (fos != null) {
+                try {
+                    fos.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 }

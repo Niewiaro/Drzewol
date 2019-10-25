@@ -6,28 +6,20 @@ android:layout_width="match_parent"
 android:layout_height="match_parent"
 tools:context=".lista2Activity">
 
-<EditText
-    android:id="@+id/edit_text"
+<TextView
+    android:id="@+id/textView3"
     android:layout_width="match_parent"
-    android:layout_height="200dp" />
+    android:layout_height="wrap_content"
+    android:textAlignment="center"
+    android:textSize="30dp"
+    android:text="Ostatnie zgłoszenie:" />
 
-<Button
-    android:id="@+id/button_save"
+<TextView
+    android:id="@+id/textViewOut"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_below="@+id/edit_text"
-    android:layout_centerHorizontal="true"
-    android:layout_marginTop="16dp"
-    android:text="save"
-    android:onClick="save"/>
+    android:textSize="20dp"
+    android:layout_below="@+id/textView3"
+    android:text="TextView" />
 
-<Button
-    android:id="@+id/button_load"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_alignStart="@+id/button_save"
-    android:layout_below="@+id/button_save"
-    android:layout_marginTop="17dp"
-    android:text="load"
-    android:onClick="load"/>
 </RelativeLayout>

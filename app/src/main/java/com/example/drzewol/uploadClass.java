@@ -107,6 +107,8 @@ public class uploadClass extends Activity {
                     db.collection("reports").document("INDEX").set(INDEX);
 
                     postPhoto(MainActivity.index);
+
+                    MainActivity.zgloszone = true;
                 }
             }
         });

@@ -5,6 +5,7 @@ package com.example.drzewol;
         import android.os.Bundle;
         import android.view.View;
         import android.widget.EditText;
+        import android.widget.TextView;
         import android.widget.Toast;
 
         import java.io.BufferedReader;
@@ -15,19 +16,20 @@ package com.example.drzewol;
         import java.io.InputStreamReader;
 
 public class lista2Activity extends AppCompatActivity {
-    private static final String FILE_NAME = "example.txt";
+    private static final String FILE_NAME = "lastReport.txt";
 
-    EditText mEditText;
+    TextView mEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_lista2);
 
-        mEditText = findViewById(R.id.edit_text);
+        mEditText = findViewById(R.id.textViewOut);
+        load(null);
     }
 
-    public void save(View v) {
+    /*public void save(View v) {
         String text = mEditText.getText().toString();
         FileOutputStream fos = null;
 
@@ -51,7 +53,7 @@ public class lista2Activity extends AppCompatActivity {
                 }
             }
         }
-    }
+    }*/
 
     public void load(View v) {
         FileInputStream fis = null;
@@ -61,10 +63,27 @@ public class lista2Activity extends AppCompatActivity {
             InputStreamReader isr = new InputStreamReader(fis);
             BufferedReader br = new BufferedReader(isr);
             StringBuilder sb = new StringBuilder();
-            String text;
+            String text, LAT, LONG;
 
-            while ((text = br.readLine()) != null) {
+            if((text = br.readLine()) != null) {
+                sb.append("\n\tTytuł:\n");
                 sb.append(text).append("\n");
+
+                LAT = br.readLine();
+                LONG = br.readLine();
+
+                sb.append("\n\tOpis:\n");
+                text = br.readLine();
+                sb.append(text).append("\n");
+                while ((text = br.readLine()) != null)
+                    sb.append(text).append("\n");
+
+                sb.append("\n\tDługość geograficzna:\n");
+                sb.append(LAT);
+                sb.append("\n\tSzerokość geograficzna:\n");
+                sb.append(LONG);
+            } else {
+                sb.append("\n\tNie masz jeszcze żadnego zgłoszenia!\n");
             }
 
             mEditText.setText(sb.toString());
